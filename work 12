@@ -1,0 +1,94 @@
+
+## You can find the data in movie_unweighted.csv in your GitHub repository. Load the file using an
+## appropriate function.
+
+
+Data <- read.csv("movie_unweighted.csv")
+Data
+
+
+# Histogram: read the documentation for the hist() function that makes a histogram.
+# a. Make a histogram of the ratings for the top 250 movies. Using the argument main, set the title
+# of the histogram to be “Histogram of Ratings” and the label on the x-axis as “Ratings”.
+
+
+hist(x = Data$ratings,main = "Histogram of Ratings" , xlab = "Rating", ylab = "No. of Movies")
+
+
+
+# b. Make the histogram again so that the bars are white in color.
+
+hist(x = Data$ratings,main = "Histogram of Ratings" , xlab = "Rating", ylab = "No. of Movies" , col = "white")
+
+
+
+
+# Do the following
+# i. Do par(mfrow = c(1,2) to make two plots next to each other. c(1,2) means 1 row, 2
+#    columns.
+
+
+par(mfrow = c(1,2))
+
+# ii. Make a histogram of ratings and unweighted next to each other.
+
+
+
+hist(x = Data$ratings,main = "Histogram of Ratings" , xlab = "Rating", ylab = "No. of Movies")
+hist(x = Data$unweighted,main = "Histogram of Unweigthed Ratings" , xlab = "Unweighted Rating", ylab = "No. of Movies")
+
+
+
+
+
+# iii. Use option xlim = c(7.5, 10) to define the limits on the x-axis.
+hist(x = Data$unweighted,main = "Histogram of Unweigthed Ratings" , xlab = "Unweighted Rating", ylab = "No. of Movies", xlim = c(7.5 , 10))
+
+# v. Are both data points positively or negatively skewed?
+#    Both are positive skewed
+
+
+
+
+## Using functions mean and median, calculate the sample mean and sample median for both
+## variables and add vertical lines using function abline() on the plot.
+
+
+sample_mean_rating <- mean(Data$ratings)
+sample_median_rating <- median(Data$ratings)
+
+sample_mean_unweighted <- mean(Data$unweighted)
+sample_median_unweighted <- median(Data$unweighted)
+
+
+
+
+hist(x = Data$ratings,main = "Histogram of Ratings" , xlab = "Rating", ylab = "No. of Movies",xlim = c(7.5 , 10)) 
+abline(v = mean(Data$ratings), col = 'red', lwd = 2, lty = 'dashed' )
+abline(v = median(Data$ratings), col = 'blue', lwd = 2, lty = 'dashed' )
+legend(x = 9,y = 100 ,legend = c("Mean","Meadian") ,lty = 'dashed', col = c("red" , "blue"))
+
+
+
+hist(x = Data$unweighted,main = "Histogram of Unweigthed Ratings" , xlab = "Unweighted Rating", ylab = "No. of Movies",xlim = c(7.5 , 10))
+abline(v = mean(Data$unweighted), col = 'red', lwd = 2, lty = 'dashed' )
+abline(v = median(Data$unweighted), col = 'blue', lwd = 2, lty = 'dashed' )
+legend(x = 9,y = 100 ,legend = c("Mean","Meadian") ,lty = 'dashed', col = c("red" , "blue"))
+
+
+
+
+# vii. What is the modal class?
+
+
+
+
+# e. Using function var, find the sample variance of both ratings and unweighted.
+var(Data$ratings)
+var(Data$unweighted)
+
+
+# BOXPLOT
+
+
+boxplot()
